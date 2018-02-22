@@ -137,7 +137,8 @@ TxRunner.prototype.runInNode = function (from, to, data, value, gasLimit, useCal
       return callback('Gas required exceeds block gas limit: ' + gasLimit + '. ' + warnEstimation)
     }
 
-    tx.gas = gasEstimation
+    // this.blockGasLimitDefault = 6600000
+    tx.gas = gasLimit
 
     if (self._api.config.getUnpersistedProperty('doNotShowTransactionConfirmationAgain')) {
       return executeTx(tx, null, self._api, callback)
